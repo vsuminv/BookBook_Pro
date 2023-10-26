@@ -1,0 +1,145 @@
+.container{
+    margin : 0 auto;
+    display:flex;
+    justify-content : center;
+    flex-direction : column;
+    justifyContent: 'space-around';
+    width :35%;
+}
+
+.title{
+    margin : 0 auto;
+    color :  #C6E6D2;
+    font-weight: bold;
+    font-size : 50px;
+    margin-bottom : 20px;
+}
+
+.form_Container{
+    margin : 0 auto;
+    width : 100%;
+
+}
+
+.input_Container{
+    margin : 0 auto;
+    width : 80%;
+    margin-left :75px;
+}
+
+.text{
+    margin : 0 auto;
+    width : 80%;
+    height : 50px;
+    background-color : #C6E6D2;
+    border : 1px solid white;
+    border-radius: 5px;
+    margin-bottom : 20px;
+}
+
+.email_text{
+    width : 80%;
+    height : 50px;
+    background-color : #C6E6D2;
+    border : 1px solid white;
+    border-radius: 5px;
+    margin-bottom : 20px;
+}
+
+input::placeholder {
+  color: white;
+}
+
+.email{
+    height : 100%;
+}
+
+.email_container{
+    display : flex;
+}
+
+.email_Check{
+      width : 20%;
+      background :  #C6E6D2;
+      font-weight: bold;
+      font-size : 5px;
+      color : white;
+      margin-bottom : 20px;
+      border : 1px solid white;
+      border-radius : 5px;
+      box-shadow : 3px 3px 3px lightgray;
+}
+
+.email_Check:active{
+    box-shadow : none;
+}
+
+
+.birthContainer{
+    width : 80%;
+    display : flex;
+    justify-content:space-between;
+}
+.birthY{
+    width : 100%;
+}
+.birthD{
+    width : 100%;
+}
+.birthM{
+    width : 100%;
+}
+
+select {
+
+width: 200px;
+
+padding: .8em .5em;
+
+border: 1px solid #999;
+
+font-family: inherit;
+
+
+border-radius: 0px;
+
+-webkit-appearance: none;
+
+-moz-appearance: none;
+
+appearance: none;
+
+}
+
+.join_btn{
+    width : 80%;
+    height : 40px;
+    margin : 0 auto;
+    background :  #C6E6D2;
+    font-weight: bold;
+    font-size : 5px;
+    color : white;
+    border : 1px solid white;
+    border-radius : 5px;
+    box-shadow : 3px 3px 3px lightgray;
+}
+
+.join_btn:active{
+    box-shadow : none;
+}
+
+p{
+    font-size : 10px;
+    color : red;
+}
+
+.logContainer{
+margin-top : 20px;
+margin-bottom : 20px;
+}
+.linkLog{
+ text-decoration-line: none;
+ color : #C6E6D2;
+ font-weight : bold;
+
+}

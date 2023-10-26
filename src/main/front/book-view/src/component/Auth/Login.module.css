@@ -1,0 +1,66 @@
+.pageContainer{
+    display: flex;
+    flex-direction : row;
+}
+.imgContainer{
+    margin-right : 60px;
+}
+.logImg{
+width : 700px;
+height : 475px;
+}
+
+
+.container{
+    margin-left : 30px;
+    margin : 0 auto;
+    display:flex;
+    justify-content : center;
+    flex-direction : column;
+    justifyContent: 'space-around';
+    width :35%;
+}
+.form_Container{
+    margin : 0 auto;
+    width : 100%;
+
+}
+.text{
+    margin : 0 auto;
+    width : 80%;
+    height : 50px;
+    background-color : #C6E6D2;
+    border : 1px solid white;
+    border-radius: 5px;
+    margin-bottom : 20px;
+}
+.log_btn{
+    width : 80%;
+    height : 40px;
+    margin : 0 auto;
+    background :  #C6E6D2;
+    font-weight: bold;
+    font-size : 5px;
+    color : white;
+    border : 1px solid white;
+    border-radius : 5px;
+    box-shadow : 3px 3px 3px lightgray;
+}
+
+.searchContainer{
+
+    margin-top : 20px;
+
+}
+span{
+color :  #C6E6D2;
+font-weight : bold;
+}
+.join_btn, .logfile_btn, .pw_btn{
+background :  white;
+border : 1px solid white;
+color :  #C6E6D2;
+font-weight : bold;
+}
+
+

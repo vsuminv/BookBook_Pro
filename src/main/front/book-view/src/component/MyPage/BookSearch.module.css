@@ -1,0 +1,10 @@
+.container{
+
+}
+.book_Container{
+    border : 1px solid black;
+    display : flex;
+    margin-bottom : 10px;
+}
+
+.left, .right{}
