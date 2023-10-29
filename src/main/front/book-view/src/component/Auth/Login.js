@@ -18,37 +18,51 @@ const navigate = useNavigate();
        const [isemail, setIsEmail] = React.useState(false);
        const [ispw, setIsPw] = React.useState(false);
 
+
   const onChangeEmail = (e) => {
-    e.preventDefault();
-    setEmail(e.currentTarget.value);
+      const currentEmail = e.currentTarget.value;
+           setEmail(currentEmail);
+           const email_regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+           if(email != currentEmail){
+                setIsEmail(false)
+                setEmailMessage("이메일의 형식이 올바르지 않습니다!");
+           }else{
+                setEmailMessage("사용 가능한 이메일 입니다.");
+                setIsEmail(true);
+           }
   };
 
   const onChangePw = (e) => {
-    e.preventDefault();
-    setPw(e.currentTarget.value);
+      const currentPw = e.currentTarget.value;
+           setPw(currentPw);
+           if(pw != currentPw){
+                setPwMessage("비밀번호가 틀렸습니다" );
+                setIsPw(false)
+           }else{
+                setPwMessage("안전한 비밀번호 입니다.");
+                setIsPw(true)
+           }
   };
+
 
       const handleSubmit =   (e) =>{
       e.preventDefault();
-        axios.get('http://localhost:8080/auth/login',
+        axios.post('http://localhost:8080/auth/login',
         {
-        headers: { "Access-Control-Allow-Credentials" : true },
+             headers: { "Access-Control-Allow-Origin" : true },
+            email : email,
+            password : pw,
+        })
 
-                                email : email,
-                                 password : pw,
-                             }
-                              )
-                             .then((response) => {
-                                 console.log(response);
-                                 alert("로그인 성공");
-                                 if ((response.status = 200)){
-                                    return navigate('/signUp')
-                                 }
-
-                             })
-                             .catch((error) => {
-                                 console.log("error : ", error.response);
-                             })
+        .then((response) => {
+                if ((response.status = 200)){
+                    alert("로그인 성공");
+                    return navigate('/')
+                }
+        })
+        .catch((error) => {
+                console.log("error : ", error.response);
+        })
 
         }
 

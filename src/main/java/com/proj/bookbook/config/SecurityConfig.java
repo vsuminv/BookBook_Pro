@@ -40,7 +40,7 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/auth/login")
+                .loginPage("/loginForm")
                 .usernameParameter("email")
                 .defaultSuccessUrl("/signUp")
                 .and()

@@ -28,6 +28,7 @@ public class UserDetailService implements UserDetailsService {
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .build();
+
     }
 
 }

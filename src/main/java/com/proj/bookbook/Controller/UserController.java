@@ -10,12 +10,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
 @RequestMapping("/auth" )
 @CrossOrigin("*")
@@ -40,8 +41,9 @@ public class UserController {
 
 
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity loadUserByUsername (@RequestBody UserDTO userDTO, String email){
+
 
 
 
