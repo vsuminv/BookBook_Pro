@@ -20,11 +20,7 @@ public class UserDTO {
     private String passwordCheck;
     private String name;
 
-    private String birthY;
-
-    private String birthM;
-
-    private String birthD;
+    private String birth;
 
     private LocalDateTime register_date;
 
@@ -39,9 +35,7 @@ public class UserDTO {
         this.password = user.getPassword();
         this.passwordCheck = user.getPasswordCheck();
         this.name = user.getName();
-        this.birthY = user.getBirthY();
-        this.birthM = user.getBirthM();
-        this.birthD = user.getBirthD();
+        this.birth = user.getBirth();
         this.register_date = user.getRegister_date();
         this.role_id =user.getRole().getRole_id();
         this.userRole = user.getUserRole().name();

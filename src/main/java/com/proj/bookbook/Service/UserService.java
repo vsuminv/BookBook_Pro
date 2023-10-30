@@ -24,9 +24,7 @@ public class UserService   {
                 .password(bCryptPasswordEncoder.encode(userDTO.getPassword()))
                 .passwordCheck(userDTO.getPasswordCheck())
                 .name(userDTO.getName())
-                .birthY(userDTO.getBirthY())
-                .birthM(userDTO.getBirthM())
-                .birthD(userDTO.getBirthD())
+                .birth(userDTO.getBirth())
                 .register_date(userDTO.getRegister_date())
                 .build();
 

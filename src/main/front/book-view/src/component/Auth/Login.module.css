@@ -48,7 +48,7 @@ height : 475px;
 }
 
 .searchContainer{
-
+    margin-left : 60px;
     margin-top : 20px;
 
 }
@@ -57,9 +57,11 @@ color :  #C6E6D2;
 font-weight : bold;
 }
 .join_btn, .logfile_btn, .pw_btn{
+text-decoration-line: none;
 background :  white;
 border : 1px solid white;
 color :  #C6E6D2;
+font-size : 15px;
 font-weight : bold;
 }
 

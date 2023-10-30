@@ -53,7 +53,7 @@ public class UserController {
         if (!bCryptPasswordEncoder.matches(userDTO.getPassword(), user.getPassword() )) {
             throw new BadCredentialsException("잘못된 계정정보입니다.");
 
-        }else{
+        } else{
             userDTO.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
             ResponseDTO responseDTO = ResponseDTO.builder().result(1).build();
             return ResponseEntity.ok().body(responseDTO);

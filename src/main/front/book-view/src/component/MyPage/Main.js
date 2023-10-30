@@ -63,11 +63,7 @@ const Main = (props) =>{
 
                         </div>
                         <div>
-                                               { bookList.map(function(a, i){
-                                                return(
-                                                    <div>{bookList[i].book_title} </div>
-                                                )
-                                               })}
+//
 
                                         </div>
 

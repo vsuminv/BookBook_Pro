@@ -41,14 +41,9 @@ public class User implements UserDetails {
     @Column(name="name" )
     private String name;
 
-    @Column(name="birthY")
-    private String birthY;
+    @Column(name="birth")
+    private String birth;
 
-    @Column(name="birthM")
-    private String birthM;
-
-    @Column(name="birthD")
-    private String birthD;
 
     @CreatedDate
     private LocalDateTime register_date;

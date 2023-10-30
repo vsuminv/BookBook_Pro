@@ -12,9 +12,7 @@ const navigate = useNavigate();
     const [email,setEmail] = useState("");
     const [pw, setPw] = useState("");
     const [chkpw,setChkpw] =useState("");
-    const [birthY, setBirthY] = useState('');
-    const [birthM, setBirthM] = useState('');
-    const [birthD, setBirthD] = useState('');
+    const [birth, setBirth] = useState('');
     const [registerDate ,setRegisterDate] = useState("");
 
 
@@ -95,39 +93,27 @@ const navigate = useNavigate();
              }
      }
 
-    const YEAR = [];
-    const nowYear = new Date().getFullYear();
-    for(let i = 1960; i<= nowYear; i++){
-        YEAR.push(i);
-    }
-
-    const MONTH = [];
-    for(let i = 1; i<=12; i++){
-        MONTH.push(i);
-    }
-
-    const DAY = [];
-    for(let i = 1; i<=31; i++){
-        let d = String(i).padStart(2,'0');
-        DAY.push(d);
-    }
 
     const handleName = (e)=>{
         setName(e.target.value);
     }
 
-    const handleBirthY = (e)=>{
-        setBirthY(e.target.value);
-    }
+//    const handleBirth = (e)=>{
+//        setBirth(e.target.value);
+//    }
 
-    const handleBirthM = (e)=>{
-        setBirthM(e.target.value);
-    }
+     const onChangeBirth = (e) =>{
+            const currentBirth = e.target.value;
+            setBirth(currentBirth);
 
-    const handleBirthD = (e)=>{
-        setBirthD(e.target.value);
-    }
+            if ((setBirth.value)=="" ){
+                setBirthMessage('생년월일을 클릭해주세요!')
+                setIsChkPw(false);
+            }else{
+                setIsChkPw(true);
 
+            }
+        }
 
 
     const handleSubmit = (e) =>{
@@ -141,17 +127,16 @@ const navigate = useNavigate();
                                email : email,
                                password : pw,
                                passwordCheck : chkpw,
-                               birthY:birthY,
-                               birthM:birthM,
-                               birthD : birthD,
+                               birth:birth,
                                register_date : registerDate
 
                            }
                             )
                            .then((response) => {
                                console.log(response);
-                               alert("회원가입성공");
+
                                if ((response.status = 200)){
+                                    alert("회원가입성공");
                                     return navigate('/loginForm')
                                }
 
@@ -179,7 +164,7 @@ const navigate = useNavigate();
                         <div className = {styles.email_container}>
                             <input className ={styles.email_text} id = "email" value={email} placeholder='이메일'onChange={onChangeEmail}></input>
 
-                            <button className = {styles.email_Check}>중복확인</button>
+                            <button className = {styles.email_Check} onClik >중복확인</button>
                         </div>
                         <p className={styles.message}>{emailMessage}</p>
 
@@ -191,23 +176,7 @@ const navigate = useNavigate();
                       <input className ={styles.text} type = "password" id = "chkpw" value={chkpw} placeholder='비밀번호 확인'onChange = {onChangeChkPw}></input>
                       <p className={styles.message}>{chkpwMessage}</p>
 
-                     <div className = {styles.birthContainer}>
-                            <select className = {styles.birthY} id={birthY} name={birthY} onChange={handleBirthY}>
-                              {YEAR.map(y=>{
-                                  return <option value={y}>{y}</option>;
-                              })}
-                            </select>
-                            <select className = {styles.birthM} id={birthM} name={birthM} onChange={handleBirthM}>
-                               {MONTH.map(m =>{
-                                  return <option value={m}>{m}</option>
-                               })}
-                            </select>
-                            <select className = {styles.birthD} id={birthD} name={birthD} onChange={handleBirthD}>
-                               {DAY.map(d=>{
-                                   return <option value={d}>{d}</option>
-                               })}
-                            </select>
-                       </div>
+                      <input className={styles.text} id = "birth"  value={birth} type="date" onChange = {onChangeBirth}></input>
                       <p className={styles.message}>{birthMessage}</p>
 
                       <button className ={styles.join_btn} type="submit"  >가입하기</button>

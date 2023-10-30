@@ -15,10 +15,14 @@ const Header = () => {
   return (
      <div className={styles.background}>
      <div className = {styles.header}>
-                   <Logobar />
-                 <button> <Link to = '/signUp' > 회원가입 </Link></button>
-                 <button> <Link to = '/loginForm' > 로그인 </Link></button>
-                <button> <Link to = '/mypageMain' > 마이페이지 </Link></button>
+        <Logobar />
+        <div className={styles.btn_Container}>
+            <button className = {styles.sign} > <Link to = '/signUp' > 회원가입 </Link></button>
+            <button className = {styles.login}> <Link to = '/loginForm' > 로그인 </Link></button>
+            <button className = {styles.mypage}> <Link to = '/mypageMain' > 마이페이지 </Link></button>
+        </div>
+
+
      </div>
 
     </div>

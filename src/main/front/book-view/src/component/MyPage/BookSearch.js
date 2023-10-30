@@ -3,7 +3,7 @@ import styles from './BookSearch.module.css';
 import axios from 'axios';
 import Books from './Books'
 
-const BookSearch = ({bookList, bookInfo}) =>{
+const BookSearch = () =>{
 
 
 const [ data, setData ] = useState([]);
@@ -33,7 +33,7 @@ const [ data, setData ] = useState([]);
 
                 <hr />
                     <div>
-                       <Books info={bookLis}/>
+
                         </div>
 
                 </div>

@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import styles from './Login.module.css';
 import Header from '../Layout/Header';
 import axios from 'axios';
-import {  useNavigate} from "react-router-dom";
+import {  useNavigate, Link } from "react-router-dom";
 const Login = () =>{
 
 const navigate = useNavigate();
@@ -81,7 +81,7 @@ const navigate = useNavigate();
         <button className ={styles.log_btn} type="submit">로그인</button>
        </form>
        <div className = {styles.searchContainer}>
-            <button className ={styles.join_btn}>회원가입</button> <span>|</span> <button className ={styles.logfile_btn}>아이디</button><button className = {styles.pw_btn}>비밀번호 찾기</button>
+            <Link  to = '/signup' className= {styles.join_btn} > 회원가입 </Link> <span>|</span> <button className ={styles.logfile_btn}>아이디</button><button className = {styles.pw_btn}>비밀번호 찾기</button>
        </div>
       </div>
 
