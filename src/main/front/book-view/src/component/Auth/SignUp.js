@@ -9,7 +9,7 @@ const SignUp = () => {
 const navigate = useNavigate();
 
     const [name,setName]= useState("");
-    const [email,setEmail] = useState("");
+    const [useremail,setEmail] = useState("");
     const [pw, setPw] = useState("");
     const [chkpw,setChkpw] =useState("");
     const [birth, setBirth] = useState('');
@@ -32,15 +32,22 @@ const navigate = useNavigate();
     const [ischkpw, setIsChkPw] = React.useState(false);
     const [isbirth, setIsBirth] = React.useState(false);
 
+    const email_regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 
+
+    useEffect(() => {
+        const result = email_regex.test(useremail);
+        setIsEmail(result)
+    },[useremail] )
 
     const onChangeName = (e) =>{
     e.preventDefault();
         const currentName = e.currentTarget.value;
         setName(currentName);
+
         const name_regex = /^[가-힣]+.{2,15}$/;
         if(!name_regex.test(currentName)){
-             setNameMessage("이름은 3글자 이상 15글자 이하로 공백없이 한글로 입력해주세요!");
+            setNameMessage("이름은 3글자 이상 15글자 이하로 공백없이 한글로 입력해주세요!");
             setIsName(false);
         }
         else{
@@ -48,7 +55,29 @@ const navigate = useNavigate();
             setIsName(true);
 
         }
-        console.log(name);
+
+    }
+
+    const duplicateCheck = (e) => {
+       e.preventDefault();
+
+       axios.post('http://localhost:8080/auth/join',{
+        headers: { "Access-Control-Allow-Credentials" : true },
+
+            email : useremail,
+
+       })
+       .then((response) => {
+               if(response.data === false){
+                alert("N")
+               }
+               else if (response.data === true){
+                alert("Y")
+               }
+
+         })
+
+
     }
 
      const onChangeEmail = (e) => {
@@ -57,6 +86,7 @@ const navigate = useNavigate();
        setEmail(currentEmail);
        const email_regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
        if(!email_regex.test(currentEmail)){
+
             setIsEmail(false)
             setEmailMessage("이메일의 형식이 올바르지 않습니다!");
        }else{
@@ -98,9 +128,6 @@ const navigate = useNavigate();
         setName(e.target.value);
     }
 
-//    const handleBirth = (e)=>{
-//        setBirth(e.target.value);
-//    }
 
      const onChangeBirth = (e) =>{
             const currentBirth = e.target.value;
@@ -124,7 +151,7 @@ const navigate = useNavigate();
 
 
                                name : name,
-                               email : email,
+                               email : useremail,
                                password : pw,
                                passwordCheck : chkpw,
                                birth:birth,
@@ -162,9 +189,9 @@ const navigate = useNavigate();
 
                     <div className={styles.email}>
                         <div className = {styles.email_container}>
-                            <input className ={styles.email_text} id = "email" value={email} placeholder='이메일'onChange={onChangeEmail}></input>
+                            <input className ={styles.email_text} id = "email" value={useremail} placeholder='이메일'onChange={onChangeEmail}></input>
 
-                            <button className = {styles.email_Check} onClik >중복확인</button>
+                            <button className = {styles.email_Check} onClick = {duplicateCheck} >중복확인</button>
                         </div>
                         <p className={styles.message}>{emailMessage}</p>
 

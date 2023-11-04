@@ -20,7 +20,7 @@ public class UserDetailService implements UserDetailsService {
         User user = userRepository.findByEmail(email);
 
         if(user == null  ) {
-            throw new UsernameNotFoundException(email);
+            throw new UsernameNotFoundException("이메일이 존재하지 않습니다.");
         }
 
                 return user.builder()

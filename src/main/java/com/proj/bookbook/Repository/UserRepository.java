@@ -13,12 +13,10 @@ public interface UserRepository extends JpaRepository <User, Long> {
 
     public  User save( User user);
 
-    @Transactional
-    public User  findUserByEmail(String email);
-
     boolean existsByEmail(String email);
 
-    public User findUserByEmailAndPasswordCheck(String email, String password);
-
     public User findByEmail(String email);
+
+    public User findByPassword(String password);
+    public User findByPasswordCheck(String passwordCheck);
 }
