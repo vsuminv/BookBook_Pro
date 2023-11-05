@@ -58,27 +58,35 @@ const navigate = useNavigate();
 
     }
 
-    const duplicateCheck = (e) => {
-       e.preventDefault();
-
-       axios.post('http://localhost:8080/auth/join',{
+  const duplicateCheck = (e) =>{
+      e.preventDefault();
+        axios.post('http://localhost:8080/auth/join',
+        {
         headers: { "Access-Control-Allow-Credentials" : true },
 
-            email : useremail,
 
-       })
-       .then((response) => {
-               if(response.data === false){
-                alert("N")
-               }
-               else if (response.data === true){
-                alert("Y")
-               }
-
-         })
+                                 email : useremail,
 
 
-    }
+                             }
+                              )
+                             .then((response) => {
+                                 console.log(response);
+
+                                 if (response.data === false){
+                                      alert("Y");
+                                 }else if (response.data === true){
+                                    alert("N")
+                                 }
+
+
+                             })
+                             .catch((error) => {
+                                 console.log("error : ", error.response);
+                             })
+
+        }
+
 
      const onChangeEmail = (e) => {
      e.preventDefault();
