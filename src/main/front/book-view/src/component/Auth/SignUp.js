@@ -93,7 +93,7 @@ const navigate = useNavigate();
        const currentEmail = e.currentTarget.value;
        setEmail(currentEmail);
        const email_regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
-       if(!email_regex.test(currentEmail)){
+       if(!email_regex.test(setEmail)){
 
             setIsEmail(false)
             setEmailMessage("이메일의 형식이 올바르지 않습니다!");
