@@ -125,7 +125,12 @@ const navigate = useNavigate();
             if (pw !== currentChkPw) {
                setChkPwMessage("비밀번호가 똑같지 않아요!");
                setIsChkPw(false);
-             } else {
+             }
+             else if (pw == ''){
+                alert("비밀번호가 똑같지 않아요!");
+                setIsChkPw(false);
+             }
+             else {
                setChkPwMessage("똑같은 비밀번호를 입력했습니다.");
                setIsChkPw(true);
              }
