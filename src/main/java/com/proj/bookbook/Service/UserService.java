@@ -38,8 +38,6 @@ public class UserService   {
         if (userEmailDuplicate){
             throw new IllegalStateException("이미 존재하는 이메일입니다.");
         }
-
-
     }
 
     @Transactional(readOnly = true)

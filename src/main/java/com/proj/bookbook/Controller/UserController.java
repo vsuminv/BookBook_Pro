@@ -58,7 +58,7 @@ public class UserController {
 
     }
 
-    @GetMapping("/join/{email}")
+    @GetMapping("/join")
     public ResponseEntity duplicationEmail (@RequestBody UserDTO userDTO){
 
 
@@ -74,7 +74,8 @@ public class UserController {
             ResponseDTO responseDTO = ResponseDTO.builder().error("비밀번호가 일치하지 않습니다.").build();
             return ResponseEntity.ok().body(responseDTO);
 
-        } else{
+        }
+        else{
             userDTO.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
             ResponseDTO responseDTO = ResponseDTO.builder().result(1).build();
             return ResponseEntity.ok().body(responseDTO);

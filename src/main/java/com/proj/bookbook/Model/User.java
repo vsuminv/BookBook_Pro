@@ -30,18 +30,18 @@ public class User implements UserDetails {
     @Column(name = "email" , nullable = false, unique = true)
     private String email;
 
-    @Column(name="password")
+    @Column(name="password", nullable = false)
     private String password;
 
 
-    @Column(name="passwordCheck")
+    @Column(name="passwordCheck", nullable = false)
     private String passwordCheck;
 
 
-    @Column(name="name" )
+    @Column(name="name" ,nullable = false)
     private String name;
 
-    @Column(name="birth")
+    @Column(name="birth", nullable = false)
     private String birth;
 
 
@@ -51,9 +51,6 @@ public class User implements UserDetails {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private Role role;
-
-    @Enumerated(EnumType.STRING)
-    private Role.UserRole userRole;
 
     @Builder
     public User(String email, String password, String auth){

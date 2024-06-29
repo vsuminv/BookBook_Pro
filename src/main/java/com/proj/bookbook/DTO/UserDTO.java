@@ -54,7 +54,6 @@ public class UserDTO {
         this.birth = user.getBirth();
         this.register_date = user.getRegister_date();
         this.role_id =user.getRole().getRole_id();
-        this.userRole = user.getUserRole().name();
 
     }
 
